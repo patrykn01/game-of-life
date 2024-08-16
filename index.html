@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Game of Life</title>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="logo.png">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="index.js"></script>
+
+</head>
+
+<body>
+
+	<h1><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank"
+			title="Game of Life on Wikipedia">CONWAY'S GAME OF LIFE</a></h1>
+
+	<div class="controls">
+		<fieldset>
+			<legend>Number of cells in a row</legend>
+			<input type="range" min="10" max="500" value="100" id="slider_num_cells_x"
+				oninput="ChangeNumCellsX(), Reset()">
+			<label id="current_value_slider_x">100</label>
+		</fieldset>
+
+		<fieldset>
+			<legend>Density</legend>
+			<input type="range" min="0" max="100" value="50" id="slider_density" oninput="ChangeDensity(), Reset()">
+			<label id="current_density">50</label>
+			<label>%</label>
+		</fieldset>
+
+		<fieldset>
+			<legend>Interval</legend>
+			<input type="range" min="1" max="300" value="100" id="slider_speed" oninput="ChangeSpeed()">
+			<label id="current_speed">100</label>
+			<label>ms</label>
+		</fieldset>
+
+	</div>
+
+	<div class="buttons">
+		<div class="group">
+			<button onclick="location.reload()"> RESET ALL</button>
+			<button onclick="Reset()"> RESET BOARD</button>
+		</div>
+		<div class="group">
+			<button onclick="StartGame()"> START </button>
+			<button onclick="StopGame()"> STOP </button>
+			<button onclick="StopGame(), OneStep()"> ONE STEP </button>
+		</div>
+	</div>
+
+	<canvas id="board_canvas" width="560px" height="560px"></canvas>
+
+	<div class="statistics">
+		<fieldset style="min-width: 40px; max-width: 40px;">
+			<legend>Step</legend>
+			<label id="current_step">-1</label>
+		</fieldset>
+		<fieldset style="min-width: 125px; max-width: 125px;">
+			<legend>Current density</legend>
+			<label id="curr_density">50</label>
+			<label>%</label>
+		</fieldset>
+	</div>
+
+</body>
+
+</html>
